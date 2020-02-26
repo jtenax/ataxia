@@ -1,0 +1,66 @@
+# Ignore configuration files that may contain sensitive information.
+robots.txt
+# Ignore paths that contain user-generated content.
+/nbproject/*
+*.sublime-*
+
+# User-specific stuff:
+
+.idea/*
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/dictionaries
+.idea/modules.xml
+.idea/qarea-com.iml
+.idea/vcs.xml
+.idea/workspace.xml
+markup/node_modules/
+node_modules/
+
+# Sensitive or high-churn files:
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.xml
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+
+# Gradle:
+.idea/**/gradle.xml
+.idea/**/libraries
+!/markup/node_modules/
+/markup/node_modules/
+/wp-content/themes/testfort/node_modules/
+
+# Ignore WP configuration file.
+wp-config.php
+wp-content/uploads/
+wp-content/aiowps_backups/
+/drupal2wp
+
+.htaccess
+s/*
+
+
+wp-content/cache/autoptimize/*
+!wp-content/cache/autoptimize/
+
+wp-content/themes/testfort/css
+wp-content/themes/testfort/js/all.min.js
+wp-content/themes/testfort/js/revisions
+
+wp-content/themes/testfort/sass/sprites.scss
+wp-content/themes/testfort/images/svg/sprite.png
+wp-content/themes/testfort/images/svg/sprite.svg
+
+wp-content/cache/
+
+wp-content/plugins/show-current-template/
+wp-content/plugins/relative-url/
+wp-content/plugins/psn-pagespeed-ninja/ress/
+
+access_log
+error_log
+.DS_Store
+
