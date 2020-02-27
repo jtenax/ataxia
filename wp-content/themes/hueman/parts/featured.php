@@ -1,14 +1,14 @@
 <?php
 // Query featured entries
 $featured = new WP_Query(
-	array(
-		'no_found_rows'				=> false,
-		'update_post_meta_cache'	=> false,
-		'update_post_term_cache'	=> false,
-		'ignore_sticky_posts'		=> 1,
-		'posts_per_page'			=> hu_get_option('featured-posts-count'),
-		'cat'						=> hu_get_option('featured-category')
-	)
+  	array(
+    		'no_found_rows'				   => false,
+    		'update_post_meta_cache' => false,
+    		'update_post_term_cache' => false,
+    		'ignore_sticky_posts'		 => 1,
+    		'posts_per_page'			   => hu_get_option('featured-posts-count'),
+    		'cat'						         => hu_get_option('featured-category')
+  	)
 );
 ?>
 
@@ -32,7 +32,7 @@ $featured = new WP_Query(
 				if (image.complete || image.readyState == 'complete' || image.readyState == 4) {
 					clearInterval(checkforloaded);
 
-					$('#flexslider-featured').flexslider({
+					$.when( $('#flexslider-featured').flexslider({
 						animation: "slide",
 						useCSS: false, // Fix iPad flickering issue
 						directionNav: true,
@@ -40,10 +40,18 @@ $featured = new WP_Query(
 						pauseOnHover: true,
 						animationSpeed: 400,
 						smoothHeight: true,
+            rtl: <?php echo json_encode( is_rtl() ) ?>,
 						touch: <?php echo apply_filters('hu_flexslider_touch_support' , true); ?>,
 						slideshow: <?php echo hu_is_checked('featured-slideshow') ? 'true' : 'false'; ?>,
 						slideshowSpeed: <?php echo hu_get_option('featured-slideshow-speed', 5000); ?>,
-					});
+					}) ).done( function() {
+            var $_self = $(this);
+                _trigger = function( $_self ) {
+              $_self.trigger('featured-slider-ready');
+            };
+            _trigger = _.debounce( _trigger, 100 );
+            _trigger( $_self );
+          } );
 
 				}
 			}, 20);

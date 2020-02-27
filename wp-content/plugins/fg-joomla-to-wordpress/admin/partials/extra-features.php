@@ -13,12 +13,14 @@
 			<li><?php _e('Joomla 3.1+ tags', 'fg-joomla-to-wordpress'); ?></li>
 			<li><?php _e('Joomla contacts', 'fg-joomla-to-wordpress'); ?><sup>*</sup></li>
 			<li><?php _e('Mambo 4.5 and 4.6 compatible', 'fg-joomla-to-wordpress'); ?></li>
+			<li><?php _e('import by cron', 'fg-joomla-to-wordpress'); ?></li>
 			<li><?php _e('K2 content', 'fg-joomla-to-wordpress'); ?><sup>*</sup></li>
 			<li><?php _e('EasyBlog content', 'fg-joomla-to-wordpress'); ?><sup>*</sup></li>
 			<li><?php _e('Kunena forum to bbPress', 'fg-joomla-to-wordpress'); ?><sup>*</sup></li>
 			<li><?php _e('Flexicontent content', 'fg-joomla-to-wordpress'); ?><sup>*</sup></li>
 			<li><?php _e('Zoo content', 'fg-joomla-to-wordpress'); ?><sup>*</sup></li>
 			<li><?php _e('Jcomments and Jomcomment comments', 'fg-joomla-to-wordpress'); ?><sup>*</sup></li>
+			<li><?php _e('JDownloads downloads', 'fg-joomla-to-wordpress'); ?><sup>*</sup></li>
 			<li><?php _e('Joomlatags tags', 'fg-joomla-to-wordpress'); ?><sup>*</sup></li>
 			<li><?php _e('Attachments', 'fg-joomla-to-wordpress'); ?><sup>*</sup></li>
 			<li><?php _e('Rokbox images', 'fg-joomla-to-wordpress'); ?><sup>*</sup></li>
@@ -34,6 +36,8 @@
 			<li><?php _e('Simple Image Gallery & Simple Image Gallery Pro', 'fg-joomla-to-wordpress'); ?><sup>*</sup></li>
 			<li><?php _e('RSGallery images', 'fg-joomla-to-wordpress'); ?><sup>*</sup></li>
 			<li><?php _e('Community Builder content', 'fg-joomla-to-wordpress'); ?><sup>*</sup></li>
+			<li><?php _e('RSBlog content', 'fg-joomla-to-wordpress'); ?><sup>*</sup></li>
+			<li><?php _e('HikaShop e-commerce', 'fg-joomla-to-wordpress'); ?><sup>*</sup></li>
 		</ul>
 		<div class="center">
 			<a href="https://www.fredericgilles.net/fg-joomla-to-wordpress/" target="_blank"><img src="https://www.fredericgilles.net/wp-content/uploads/premium-version.png" alt="Buy Premium Version" /></a>

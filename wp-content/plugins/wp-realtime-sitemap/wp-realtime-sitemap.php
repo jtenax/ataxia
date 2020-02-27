@@ -4,7 +4,7 @@
 Plugin Name: WP Realtime Sitemap
 Plugin URI: http://goo.gl/ri9xU
 Description: Adds a sitemap to your Wordpress blog that is always up-to-date. Add `[wp-realtime-sitemap]` to any page or post and the site map will be added there. Use Settings->WP Realtime Sitemap to set options.
-Version: 1.5.6
+Version: 1.5.7
 Author: Daniel Tweedy
 Author URI: http://goo.gl/jdOfL
 License: GPL2
@@ -32,7 +32,7 @@ if (!class_exists('WPRealtimeSitemap')) {
 	class WPRealtimeSitemap {
 		var $plugin_base = '';
 
-		function WPRealtimeSitemap() { //constructor
+		function __construct() { //constructor
 			// Add Init
 			add_action('init', array(&$this, 'addInit'));
 
@@ -546,8 +546,8 @@ if (!class_exists('WPRealtimeSitemap')) {
 
 				case 'show_promote':
 					$values = array(
-						'Yes'		=> __('Yes/On (Default)', 'wp-realtime-sitemap'),
-						'No'		=> __('No/Off', 'wp-realtime-sitemap'),
+						'Yes'		=> __('Yes/On', 'wp-realtime-sitemap'),
+						'No'		=> __('No/Off (Default)', 'wp-realtime-sitemap'),
 					);
 					break;
 
@@ -844,6 +844,9 @@ if (!class_exists('WPRealtimeSitemap')) {
 				case 'seventh_order':
 					$infotext = '';
 					break;
+
+				default:
+					$infotext = '';
 			}
 
 			return $infotext;
@@ -862,7 +865,7 @@ if (!class_exists('WPRealtimeSitemap')) {
 				$output = '<select name="plugin_wp_realtime_sitemap_settings[' . esc_attr( $args['dbfield'] ) . ']">';
 
 				foreach ($values as $key => $label) {
-					$output .= sprintf($optionFormat, $key, selected($$args['dbfield'], $key, false), $label);
+					$output .= sprintf($optionFormat, $key, selected(${$args['dbfield']}, $key, false), $label);
 				}
 
 				$output .= '</select><br />' . $infotext;
@@ -878,7 +881,7 @@ if (!class_exists('WPRealtimeSitemap')) {
 			$infotext	= $this->_formInfoText($args);
 
 			if (array_key_exists('dbfield', $args) && isset($infotext)) {
-				echo '<input name="plugin_wp_realtime_sitemap_settings[' . esc_attr( $args['dbfield'] ) . ']" size="30" type="text" value="' . esc_attr( $$args['dbfield'] ) . '" /><br />' . $infotext;
+				echo '<input name="plugin_wp_realtime_sitemap_settings[' . esc_attr( $args['dbfield'] ) . ']" size="30" type="text" value="' . esc_attr( ${$args['dbfield']} ) . '" /><br />' . $infotext;
 			}
 		}
 
@@ -1771,7 +1774,7 @@ if (!class_exists('WPRealtimeSitemap')) {
 
 				if ($show == 'all') {
 					$custom_posts = implode('', $custom_posts);
-					return $$all_options['first_order'] . $$all_options['second_order'] . $$all_options['third_order'] . $$all_options['fourth_order'] . $$all_options['fifth_order'] . $$all_options['sixth_order'] . $$all_options['seventh_order'] . $promote;
+					return ${$all_options['first_order']} . ${$all_options['second_order']} . ${$all_options['third_order']} . ${$all_options['fourth_order']} . ${$all_options['fifth_order']} . ${$all_options['sixth_order']} . ${$all_options['seventh_order']} . $promote;
 				}
 			}
 		}
@@ -1849,7 +1852,7 @@ if (!class_exists('WPRealtimeSitemap')) {
 				'show_archives'			=> 'Yes',
 				'show_categories'		=> 'Yes',
 				'show_tags'			=> 'No',
-				'show_promote'			=> 'Yes',
+				'show_promote'			=> 'No',
 
 				'first_order'			=> 'menu',
 				'second_order'			=> 'pages',

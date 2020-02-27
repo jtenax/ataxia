@@ -1,9 +1,9 @@
-<?php $related = hu_related_posts(); ?>
+<?php $related = hu_get_related_posts(); ?>
 
 <?php if ( $related->have_posts() ): ?>
 
 <h4 class="heading">
-	<i class="fa fa-hand-o-right"></i><?php _e('You may also like...','hueman'); ?>
+	<i class="far fa-hand-point-right"></i><?php _e('You may also like...','hueman'); ?>
 </h4>
 
 <ul class="related-posts group">
@@ -13,25 +13,21 @@
 		<article <?php post_class(); ?>>
 
 			<div class="post-thumbnail">
-				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-					<?php if ( has_post_thumbnail() ): ?>
-						<?php the_post_thumbnail('thumb-medium'); ?>
-					<?php elseif ( hu_is_checked('placeholder') ): ?>
-						<?php hu_print_placeholder_thumb(); ?>
-					<?php endif; ?>
-					<?php if ( has_post_format('video') && !is_sticky() ) echo'<span class="thumb-icon small"><i class="fa fa-play"></i></span>'; ?>
-					<?php if ( has_post_format('audio') && !is_sticky() ) echo'<span class="thumb-icon small"><i class="fa fa-volume-up"></i></span>'; ?>
-					<?php if ( is_sticky() ) echo'<span class="thumb-icon small"><i class="fa fa-star"></i></span>'; ?>
+				<a href="<?php the_permalink(); ?>">
+					<?php hu_the_post_thumbnail('thumb-medium'); ?>
+					<?php if ( has_post_format('video') && !is_sticky() ) echo'<span class="thumb-icon small"><i class="fas fa-play"></i></span>'; ?>
+					<?php if ( has_post_format('audio') && !is_sticky() ) echo'<span class="thumb-icon small"><i class="fas fa-volume-up"></i></span>'; ?>
+					<?php if ( is_sticky() ) echo'<span class="thumb-icon small"><i class="fas fa-star"></i></span>'; ?>
 				</a>
 				<?php if ( comments_open() && ( hu_is_checked( 'comment-count' ) ) ): ?>
-					<a class="post-comments" href="<?php comments_link(); ?>"><span><i class="fa fa-comments-o"></i><?php comments_number( '0', '1', '%' ); ?></span></a>
+					<a class="post-comments" href="<?php comments_link(); ?>"><i class="far fa-comments"></i><?php comments_number( '0', '1', '%' ); ?></a>
 				<?php endif; ?>
 			</div><!--/.post-thumbnail-->
 
 			<div class="related-inner">
 
 				<h4 class="post-title entry-title">
-					<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+					<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute( array( 'before' => __( 'Permalink to ', 'hueman' ) ) ); ?>"><?php the_title(); ?></a>
 				</h4><!--/.post-title-->
 
 				<div class="post-meta group">

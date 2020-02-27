@@ -1,0 +1,105 @@
+[27-Feb-2020 10:55:30 UTC] PHP Deprecated:  __autoload() is deprecated, use spl_autoload_register() instead in /media/hdd/www/at/wp-includes/compat.php on line 502
+[27-Feb-2020 10:55:34 UTC] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; WPRealtimeSitemap has a deprecated constructor in /media/hdd/www/at/wp-content/plugins/wp-realtime-sitemap/wp-realtime-sitemap.php on line 32
+[27-Feb-2020 10:55:34 UTC] PHP Deprecated:  Function create_function() is deprecated in /media/hdd/www/at/wp-includes/pomo/translations.php on line 208
+[27-Feb-2020 10:55:34 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 98
+[27-Feb-2020 10:55:34 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 326
+[27-Feb-2020 11:02:16 UTC] PHP Deprecated:  Function create_function() is deprecated in /media/hdd/www/at/wp-includes/pomo/translations.php on line 208
+[27-Feb-2020 11:02:16 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 98
+[27-Feb-2020 11:02:16 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 326
+[27-Feb-2020 11:02:16 UTC] PHP Notice:  Undefined index: submit_update_url in /media/hdd/www/at/wp-migrate.php on line 129
+[27-Feb-2020 11:02:28 UTC] PHP Deprecated:  Function create_function() is deprecated in /media/hdd/www/at/wp-includes/pomo/translations.php on line 208
+[27-Feb-2020 11:02:28 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 98
+[27-Feb-2020 11:02:28 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 326
+[27-Feb-2020 11:02:42 UTC] PHP Deprecated:  Function create_function() is deprecated in /media/hdd/www/at/wp-includes/pomo/translations.php on line 208
+[27-Feb-2020 11:02:42 UTC] PHP Deprecated:  Function create_function() is deprecated in /media/hdd/www/at/wp-includes/pomo/translations.php on line 208
+[27-Feb-2020 11:02:42 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 98
+[27-Feb-2020 11:02:42 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 326
+[27-Feb-2020 11:02:43 UTC] PHP Deprecated:  Function create_function() is deprecated in /media/hdd/www/at/wp-includes/pomo/translations.php on line 208
+[27-Feb-2020 11:02:43 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 98
+[27-Feb-2020 11:02:43 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 326
+[27-Feb-2020 11:02:47 UTC] PHP Deprecated:  Function create_function() is deprecated in /media/hdd/www/at/wp-includes/pomo/translations.php on line 208
+[27-Feb-2020 11:02:47 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 98
+[27-Feb-2020 11:02:47 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 326
+[27-Feb-2020 11:02:59 UTC] PHP Deprecated:  Function create_function() is deprecated in /media/hdd/www/at/wp-includes/pomo/translations.php on line 208
+[27-Feb-2020 11:02:59 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 98
+[27-Feb-2020 11:02:59 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 326
+[27-Feb-2020 11:06:08 UTC] PHP Deprecated:  Function create_function() is deprecated in /media/hdd/www/at/wp-includes/pomo/translations.php on line 208
+[27-Feb-2020 11:06:08 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 98
+[27-Feb-2020 11:06:08 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 326
+[27-Feb-2020 11:06:08 UTC] PHP Deprecated:  Function create_function() is deprecated in /media/hdd/www/at/wp-includes/pomo/translations.php on line 208
+[27-Feb-2020 11:06:08 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 98
+[27-Feb-2020 11:06:08 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 326
+[27-Feb-2020 11:06:08 UTC] PHP Deprecated:  Function create_function() is deprecated in /media/hdd/www/at/wp-includes/pomo/translations.php on line 208
+[27-Feb-2020 11:06:09 UTC] PHP Deprecated:  Function create_function() is deprecated in /media/hdd/www/at/wp-includes/pomo/translations.php on line 208
+[27-Feb-2020 11:06:09 UTC] PHP Deprecated:  Function create_function() is deprecated in /media/hdd/www/at/wp-includes/pomo/translations.php on line 208
+[27-Feb-2020 11:06:09 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 98
+[27-Feb-2020 11:06:09 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 326
+[27-Feb-2020 11:06:11 UTC] PHP Deprecated:  Function create_function() is deprecated in /media/hdd/www/at/wp-includes/pomo/translations.php on line 208
+[27-Feb-2020 11:06:11 UTC] PHP Deprecated:  Function create_function() is deprecated in /media/hdd/www/at/wp-includes/pomo/translations.php on line 208
+[27-Feb-2020 11:06:11 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 98
+[27-Feb-2020 11:06:11 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 326
+[27-Feb-2020 11:06:19 UTC] PHP Notice: A feed could not be found at http://wordpress.org/plugins/rss/browse/popular/. A feed with an invalid mime type may fall victim to this error, or SimplePie was unable to auto-discover it.. Use force_feed() if you are certain this URL is a real feed. in /media/hdd/www/at/wp-includes/class-simplepie.php on line 1555
+[27-Feb-2020 11:06:54 UTC] PHP Deprecated:  Function create_function() is deprecated in /media/hdd/www/at/wp-includes/pomo/translations.php on line 208
+[27-Feb-2020 11:06:54 UTC] PHP Deprecated:  Function create_function() is deprecated in /media/hdd/www/at/wp-includes/pomo/translations.php on line 208
+[27-Feb-2020 11:06:54 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 98
+[27-Feb-2020 11:06:54 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 326
+[27-Feb-2020 11:06:54 UTC] PHP Deprecated:  Function create_function() is deprecated in /media/hdd/www/at/wp-includes/pomo/translations.php on line 208
+[27-Feb-2020 11:06:54 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /media/hdd/www/at/wp-includes/kses.php on line 895
+[27-Feb-2020 11:06:54 UTC] PHP Deprecated:  Function create_function() is deprecated in /media/hdd/www/at/wp-includes/pomo/translations.php on line 208
+[27-Feb-2020 11:06:54 UTC] PHP Deprecated:  Function create_function() is deprecated in /media/hdd/www/at/wp-includes/pomo/translations.php on line 208
+[27-Feb-2020 11:06:54 UTC] PHP Deprecated:  Function create_function() is deprecated in /media/hdd/www/at/wp-includes/pomo/translations.php on line 208
+[27-Feb-2020 11:07:06 UTC] PHP Deprecated:  Function create_function() is deprecated in /media/hdd/www/at/wp-includes/pomo/translations.php on line 208
+[27-Feb-2020 11:07:06 UTC] PHP Deprecated:  Function create_function() is deprecated in /media/hdd/www/at/wp-includes/pomo/translations.php on line 208
+[27-Feb-2020 11:07:06 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 98
+[27-Feb-2020 11:07:06 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 326
+[27-Feb-2020 11:07:55 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 98
+[27-Feb-2020 11:07:55 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 326
+[27-Feb-2020 11:07:55 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 98
+[27-Feb-2020 11:07:55 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 326
+[27-Feb-2020 11:07:56 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 98
+[27-Feb-2020 11:07:56 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 326
+[27-Feb-2020 11:07:56 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 98
+[27-Feb-2020 11:07:56 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 326
+[27-Feb-2020 11:07:56 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 98
+[27-Feb-2020 11:07:56 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 326
+[27-Feb-2020 11:08:01 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 98
+[27-Feb-2020 11:08:01 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 326
+[27-Feb-2020 11:08:07 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 98
+[27-Feb-2020 11:08:07 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 326
+[27-Feb-2020 11:08:54 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 98
+[27-Feb-2020 11:08:54 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 326
+[27-Feb-2020 11:09:28 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 98
+[27-Feb-2020 11:09:28 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 326
+[27-Feb-2020 11:09:42 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 98
+[27-Feb-2020 11:09:42 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 326
+[27-Feb-2020 11:10:42 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 98
+[27-Feb-2020 11:10:42 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 326
+[27-Feb-2020 11:11:05 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 98
+[27-Feb-2020 11:11:05 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 326
+[27-Feb-2020 11:11:17 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 98
+[27-Feb-2020 11:11:17 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 326
+[27-Feb-2020 11:11:21 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 98
+[27-Feb-2020 11:11:21 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 326
+[27-Feb-2020 11:11:30 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 98
+[27-Feb-2020 11:11:30 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 326
+[27-Feb-2020 11:11:57 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 98
+[27-Feb-2020 11:11:57 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 326
+[27-Feb-2020 11:12:07 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 98
+[27-Feb-2020 11:12:07 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 326
+[27-Feb-2020 11:12:13 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 98
+[27-Feb-2020 11:12:13 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 326
+[27-Feb-2020 11:12:19 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 98
+[27-Feb-2020 11:12:19 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 326
+[27-Feb-2020 11:12:26 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 98
+[27-Feb-2020 11:12:26 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 326
+[27-Feb-2020 11:12:37 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 98
+[27-Feb-2020 11:12:37 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 326
+[27-Feb-2020 11:12:41 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 98
+[27-Feb-2020 11:12:41 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 326
+[27-Feb-2020 11:12:44 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 98
+[27-Feb-2020 11:12:44 UTC] PHP Notice:  Only variables should be passed by reference in /media/hdd/www/at/wp-content/themes/hueman/option-tree/ot-loader.php on line 326
+[27-Feb-2020 11:14:24 UTC] PHP Notice:  screen_icon <strong>відхилено</strong> починаючи з версії 3.8.0 без альтернативних варіантів. in /media/hdd/www/at/wp-includes/functions.php on line 4651
+[27-Feb-2020 11:14:24 UTC] PHP Notice:  get_screen_icon <strong>відхилено</strong> починаючи з версії 3.8.0 без альтернативних варіантів. in /media/hdd/www/at/wp-includes/functions.php on line 4651
+[27-Feb-2020 11:15:10 UTC] PHP Notice:  Undefined index: submit_update_url in /media/hdd/www/at/wp-migrate.php on line 129
+[27-Feb-2020 11:19:29 UTC] PHP Notice:  screen_icon <strong>відхилено</strong> починаючи з версії 3.8.0 без альтернативних варіантів. in /media/hdd/www/at/wp-includes/functions.php on line 4651
+[27-Feb-2020 11:19:29 UTC] PHP Notice:  get_screen_icon <strong>відхилено</strong> починаючи з версії 3.8.0 без альтернативних варіантів. in /media/hdd/www/at/wp-includes/functions.php on line 4651

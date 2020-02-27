@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: FG Joomla to WordPress\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-09 20:35+0100\n"
-"PO-Revision-Date: 2016-02-19 13:16-0200\n"
+"PO-Revision-Date: 2019-09-03 13:44+0200\n"
 "Last-Translator: DJIO | Dionizio Bonfim Bach <wordpress@djio.com.br>\n"
 "Language-Team: DJIO | Dionizio Bonfim Bach <wordpress@djio.com.br>\n"
 "Language: pt_BR\n"
@@ -14,7 +14,7 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 1.8.3\n"
+"X-Generator: Poedit 2.2.3\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: admin/class-fg-joomla-to-wordpress-admin.php:102
@@ -181,7 +181,7 @@ msgstr "Perguntas Frequentes"
 
 #: admin/class-fg-joomla-to-wordpress-admin.php:451
 msgid "PDO is required. Please enable it."
-msgstr "POD é necessário. Favor habilitá-lo."
+msgstr "PDO é necessário. Favor habilitá-lo."
 
 #: admin/class-fg-joomla-to-wordpress-admin.php:460
 #: admin/class-fg-joomla-to-wordpress-admin.php:683

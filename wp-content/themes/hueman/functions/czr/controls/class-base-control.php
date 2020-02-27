@@ -18,6 +18,10 @@ if ( ! class_exists( 'HU_controls' ) ) :
       public $min;
       public $icon;
 
+      public $ubq_section;
+
+      static $enqueued_resources;
+
       public function render_content()  {
         do_action( '__before_setting_control' , $this -> id );
 
@@ -74,16 +78,32 @@ if ( ! class_exists( 'HU_controls' ) ) :
               break;
 
             case 'checkbox':
+            case 'nimblecheck':
               ?>
               <?php if (isset( $this->title)) : ?>
                 <h3 class="czr-customizr-title"><?php echo esc_html( $this->title); ?></h3>
               <?php endif; ?>
-              <?php
+
+              <?php if ( 'checkbox' === $this->type ) : ?>
+                <?php
                     printf('<div class="czr-check-label"><label><span class="customize-control-title">%1$s</span></label></div>',
-                    $this->label
-                  );
-              ?>
-              <input <?php $this->link(); ?> type="checkbox" value="<?php echo esc_attr( $this->value() ); ?>"  <?php hu_checked( $this->value() ); ?> />
+                      $this->label
+                    );
+                ?>
+                <input <?php $this->link(); ?> type="checkbox" value="<?php echo esc_attr( $this->value() ); ?>"  <?php checked( $this->value() ); ?> />
+              <?php elseif ( 'nimblecheck' === $this->type ) : ?>
+                <div class="czr-control-nimblecheck">
+                  <?php
+                    printf('<div class="czr-check-label"><label><span class="customize-control-title">%1$s</span></label></div>',
+                      $this->label
+                    );
+                  ?>
+                  <div class="nimblecheck-wrap">
+                    <input id="nimblecheck-<?php echo $this -> id; ?>" <?php $this->link(); ?> type="checkbox" value="<?php echo esc_attr( $this->value() ); ?>"  <?php checked( $this->value() ); ?> class="nimblecheck-input">
+                    <label for="nimblecheck-<?php echo $this -> id; ?>" class="nimblecheck-label">Switch</label>
+                  </div>
+                </div>
+              <?php endif; ?>
 
               <?php if(!empty( $this -> notice)) : ?>
                <span class="czr-notice"><?php echo $this-> notice ?></span>
@@ -184,27 +204,45 @@ if ( ! class_exists( 'HU_controls' ) ) :
    * fired by the parent Control class constructor
    *
    */
-    public function enqueue() {
-        wp_enqueue_script( 'wp-color-picker' );
-        wp_enqueue_style( 'wp-color-picker' );
+    // public function enqueue() {
+    //     if ( ! empty( self::$enqueued_resources ) )
+    //       return;
 
-        wp_enqueue_style(
-          'font-awesome',
-          sprintf('%1$s/assets/front/css/font-awesome.min.css', get_template_directory_uri() ),
-          array(),
-          HUEMAN_VER,
-          $media = 'all'
-        );
+    //     self::$enqueued_resources = true;
 
-        //select2 stylesheet
-        //overriden by some specific style in theme-customzer-control.css
-        wp_enqueue_style(
-          'select2-css',
-          sprintf('%1$s/assets/czr/css/lib/select2.min.css', get_template_directory_uri() ),
-          array( 'customize-controls' ),
-          HUEMAN_VER,
-          $media = 'all'
-        );
+    //     wp_enqueue_script( 'wp-color-picker' );
+    //     wp_enqueue_style( 'wp-color-picker' );
+
+    //     wp_enqueue_style(
+    //       'font-awesome',
+    //       sprintf('%1$s/assets/front/css/font-awesome.min.css', get_template_directory_uri() ),
+    //       array(),
+    //       HUEMAN_VER,
+    //       $media = 'all'
+    //     );
+
+    //     //select2 stylesheet
+    //     //overriden by some specific style in theme-customzer-control.css
+    //     wp_enqueue_style(
+    //       'select2-css',
+    //       sprintf('%1$s/assets/czr/css/lib/select2.min.css', get_template_directory_uri() ),
+    //       array( 'customize-controls' ),
+    //       HUEMAN_VER,
+    //       $media = 'all'
+    //     );
+    // }
+
+    /**
+    * Refresh the parameters passed to the JavaScript via JSON.
+    *
+    *
+    * @Override
+    * @see WP_Customize_Control::to_json()
+    */
+    public function to_json() {
+        parent::to_json();
+        if ( is_array( $this->ubq_section ) && array_key_exists( 'section', $this->ubq_section ) )
+          $this->json['ubq_section'] = $this->ubq_section;
     }
   }//end of class
 endif;

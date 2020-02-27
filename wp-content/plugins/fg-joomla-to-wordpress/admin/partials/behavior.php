@@ -18,7 +18,7 @@
 					</td>
 				</tr>
 				<tr>
-					<th scope="row"><?php _e('Medias:', 'fg-joomla-to-wordpress'); ?></th>
+					<th scope="row"><?php _e('Media:', 'fg-joomla-to-wordpress'); ?></th>
 					<td><input id="skip_media" name="skip_media" type="checkbox" value="1" <?php checked($data['skip_media'], 1); ?> /> <label for="skip_media" ><?php _e('Skip media', 'fg-joomla-to-wordpress'); ?></label>
 					<br />
 					<div id="media_import_box">
@@ -33,6 +33,8 @@
 						<input id="only_featured_image" name="only_featured_image" type="checkbox" value="1" <?php checked($data['only_featured_image'], 1); ?> /> <label for="only_featured_image"><?php _e("Import only the featured images. Don't import the other images", 'fg-joomla-to-wordpress'); ?></label>
 						<br />
 						<input id="remove_first_image" name="remove_first_image" type="checkbox" value="1" <?php checked($data['remove_first_image'], 1); ?> /> <label for="remove_first_image"><?php _e('Remove the first image from the content when it is used as the featured image', 'fg-joomla-to-wordpress'); ?></label>
+						<br />
+						<input id="remove_accents" name="remove_accents" type="checkbox" value="1" <?php checked($data['remove_accents'], 1); ?> /> <label for="remove_accents"><?php _e('Remove accents from file names', 'fg-joomla-to-wordpress'); ?></label>
 						<br />
 						<input id="import_external" name="import_external" type="checkbox" value="1" <?php checked($data['import_external'], 1); ?> /> <label for="import_external"><?php _e('Import external media', 'fg-joomla-to-wordpress'); ?></label>
 						<br />

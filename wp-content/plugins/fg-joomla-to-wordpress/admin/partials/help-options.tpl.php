@@ -60,6 +60,19 @@ This option will create automatically subcategories menus for each category menu
 
 <p><strong>Partial import <span class="fgj2wp_premium_feature">(Premium feature)</span>:</strong> If you don't want to import all the Joomla data, you can use this option. Please note that even if you don't use this option and if you rerun the import, the already imported content won't be imported twice.</p>
 
+<h2>Automatic import from cron <span class="fgj2wp_premium_feature">(Premium feature)</span></h2>
+<p>If you want to import automatically the new data added to the Joomla database, you can do it with a cron command.</p>
+<ul>
+	<li>First you need to set up correctly all the settings in the import screen. It is advised to run the first import manually to be sure that the settings are correct.</li>
+	<li>Then define your crontab like:<br />
+		<code>
+			0 0 * * * php /path/to/wp/wp-content/plugins/fg-joomla-to-wordpress-premium/cron_import.php >>/dev/null
+		</code><br />
+		This will run the import once a day at 0:00.<br />
+		You can of course change the frequency if you want.
+	</li>
+</ul>
+
 <?php do_action('fgj2wp_help_options'); ?>
 
 </div>

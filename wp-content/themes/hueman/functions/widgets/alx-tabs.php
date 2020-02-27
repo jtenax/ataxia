@@ -69,10 +69,10 @@ class AlxTabs extends WP_Widget {
 			'tags'		=> __('Tags','hueman')
 		);
 		$icons = array(
-			'recent'   => 'fa fa-clock-o',
-			'popular'  => 'fa fa-star',
-			'comments' => 'fa fa-comments-o',
-			'tags'     => 'fa fa-tags'
+			'recent'   => 'far fa-clock',
+			'popular'  => 'fas fa-star',
+			'comments' => 'far fa-comments',
+			'tags'     => 'fas fa-tags'
 		);
 		$output = sprintf('<ul class="alx-tabs-nav group tab-count-%s">', $count);
 		foreach ( $tabs as $tab ) {
@@ -96,8 +96,9 @@ class AlxTabs extends WP_Widget {
     $instance = wp_parse_args( (array) $instance, $defaults );
 
 		$title = apply_filters('widget_title',$instance['title']);
+    $title = empty( $title ) ? '' : $title;
 		$output = $before_widget."\n";
-		if($title)
+		if( $title || ! empty( $before_title) )
 			$output .= $before_title.$title.$after_title;
 		ob_start();
 
@@ -126,8 +127,15 @@ class AlxTabs extends WP_Widget {
 
 		<?php if($instance['recent_enable']) { // Recent posts enabled? ?>
 
-			<?php $recent=new WP_Query(); ?>
-			<?php $recent->query('showposts='.$instance["recent_num"].'&cat='.$instance["recent_cat_id"].'&ignore_sticky_posts=1');?>
+			<?php
+          $recent_query_params = apply_filters( 'hu_tabs_widget_recent_query_args', array(
+              'post_type'   => array( 'post' ),
+              'showposts'   => $instance["recent_num"],
+              'cat'         => $instance['recent_cat_id'],
+              'ignore_sticky_posts' => true
+          ) );
+          $recent = new WP_Query( is_array( $recent_query_params ) ? $recent_query_params : array() );
+        ?>
 
 			<ul id="tab-recent-<?php echo $this -> number ?>" class="alx-tab group <?php if($instance['recent_thumbs']) { echo 'thumbs-enabled'; } ?>">
 				<?php while ($recent->have_posts()): $recent->the_post(); ?>
@@ -135,22 +143,18 @@ class AlxTabs extends WP_Widget {
 
 					<?php if($instance['recent_thumbs']) { // Thumbnails enabled? ?>
 					<div class="tab-item-thumbnail">
-						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-							<?php if ( has_post_thumbnail() ): ?>
-								<?php the_post_thumbnail('thumb-small'); ?>
-							<?php else: ?>
-								<img src="<?php echo get_template_directory_uri(); ?>/assets/front/img/thumb-small.png" alt="<?php the_title(); ?>" />
-							<?php endif; ?>
-							<?php if ( has_post_format('video') && !is_sticky() ) echo'<span class="thumb-icon small"><i class="fa fa-play"></i></span>'; ?>
-							<?php if ( has_post_format('audio') && !is_sticky() ) echo'<span class="thumb-icon small"><i class="fa fa-volume-up"></i></span>'; ?>
-							<?php if ( is_sticky() ) echo'<span class="thumb-icon small"><i class="fa fa-star"></i></span>'; ?>
+						<a href="<?php the_permalink(); ?>">
+							<?php hu_the_post_thumbnail('thumb-small'); ?>
+							<?php if ( has_post_format('video') && !is_sticky() ) echo'<span class="thumb-icon small"><i class="fas fa-play"></i></span>'; ?>
+							<?php if ( has_post_format('audio') && !is_sticky() ) echo'<span class="thumb-icon small"><i class="fas fa-volume-up"></i></span>'; ?>
+							<?php if ( is_sticky() ) echo'<span class="thumb-icon small"><i class="fas fa-star"></i></span>'; ?>
 						</a>
 					</div>
 					<?php } ?>
 
 					<div class="tab-item-inner group">
 						<?php if($instance['tabs_category']) { ?><p class="tab-item-category"><?php the_category(' / '); ?></p><?php } ?>
-						<p class="tab-item-title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a></p>
+						<p class="tab-item-title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute( array( 'before' => __( 'Permalink to ', 'hueman' ) ) ); ?>"><?php the_title(); ?></a></p>
 						<?php if($instance['tabs_date']) { ?><p class="tab-item-date"><?php the_time('j M, Y'); ?></p><?php } ?>
 					</div>
 
@@ -165,19 +169,20 @@ class AlxTabs extends WP_Widget {
 		<?php if($instance['popular_enable']) { // Popular posts enabled? ?>
 
 			<?php
-				$popular = new WP_Query( array(
-					'post_type'				=> array( 'post' ),
-					'showposts'				=> $instance['popular_num'],
-					'cat'					=> $instance['popular_cat_id'],
-					'ignore_sticky_posts'	=> true,
-					'orderby'				=> 'comment_count',
-					'order'					=> 'dsc',
-					'date_query' => array(
-						array(
-							'after' => $instance['popular_time'],
-						),
-					),
-				) );
+        $popular_query_params = apply_filters( 'hu_tabs_widget_popular_query_args', array(
+          'post_type'       => array( 'post' ),
+          'showposts'       => $instance['popular_num'],
+          'cat'         => $instance['popular_cat_id'],
+          'ignore_sticky_posts' => true,
+          'orderby'       => 'comment_count',
+          'order'         => 'dsc',
+          'date_query' => array(
+            array(
+              'after' => $instance['popular_time'],
+            ),
+          ),
+        ) );
+				$popular = new WP_Query( is_array( $popular_query_params ) ? $popular_query_params : array() );
 			?>
 			<ul id="tab-popular-<?php echo $this -> number ?>" class="alx-tab group <?php if($instance['popular_thumbs']) { echo 'thumbs-enabled'; } ?>">
 
@@ -186,22 +191,18 @@ class AlxTabs extends WP_Widget {
 
 					<?php if($instance['popular_thumbs']) { // Thumbnails enabled? ?>
 					<div class="tab-item-thumbnail">
-						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-							<?php if ( has_post_thumbnail() ): ?>
-								<?php the_post_thumbnail('thumb-small'); ?>
-							<?php else: ?>
-								<img src="<?php echo get_template_directory_uri(); ?>/assets/front/img/thumb-small.png" alt="<?php the_title(); ?>" />
-							<?php endif; ?>
-							<?php if ( has_post_format('video') && !is_sticky() ) echo'<span class="thumb-icon small"><i class="fa fa-play"></i></span>'; ?>
-							<?php if ( has_post_format('audio') && !is_sticky() ) echo'<span class="thumb-icon small"><i class="fa fa-volume-up"></i></span>'; ?>
-							<?php if ( is_sticky() ) echo'<span class="thumb-icon small"><i class="fa fa-star"></i></span>'; ?>
+						<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute( array( 'before' => __( 'Permalink to ', 'hueman' ) ) ); ?>">
+							<?php hu_the_post_thumbnail('thumb-small'); ?>
+							<?php if ( has_post_format('video') && !is_sticky() ) echo'<span class="thumb-icon small"><i class="fas fa-play"></i></span>'; ?>
+							<?php if ( has_post_format('audio') && !is_sticky() ) echo'<span class="thumb-icon small"><i class="fas fa-volume-up"></i></span>'; ?>
+							<?php if ( is_sticky() ) echo'<span class="thumb-icon small"><i class="fas fa-star"></i></span>'; ?>
 						</a>
 					</div>
 					<?php } ?>
 
 					<div class="tab-item-inner group">
 						<?php if($instance['tabs_category']) { ?><p class="tab-item-category"><?php the_category(' / '); ?></p><?php } ?>
-						<p class="tab-item-title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a></p>
+						<p class="tab-item-title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute( array( 'before' => __( 'Permalink to ', 'hueman' ) ) ); ?>"><?php the_title(); ?></a></p>
 						<?php if($instance['tabs_date']) { ?><p class="tab-item-date"><?php the_time('j M, Y'); ?></p><?php } ?>
 					</div>
 

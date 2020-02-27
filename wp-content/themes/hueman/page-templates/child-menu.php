@@ -5,9 +5,9 @@ Template Name: Child Menu
 ?>
 <?php get_header(); ?>
 
-<section class="content">
+<section class="content" id="content">
 
-	<?php get_template_part('parts/page-title'); ?>
+	<?php hu_get_template_part('parts/page-title'); ?>
 
 	<div class="pad group">
 
@@ -15,10 +15,19 @@ Template Name: Child Menu
 
 			<article <?php post_class('group'); ?>>
 
-				<?php get_template_part('parts/page-image'); ?>
+				<?php hu_get_template_part('parts/page-image'); ?>
 
 				<div class="entry themeform">
 					<?php the_content(); ?>
+          <nav class="pagination group">
+            <?php
+              //Checks for and uses wp_pagenavi to display page navigation for multi-page posts.
+              if ( function_exists('wp_pagenavi') )
+                wp_pagenavi( array( 'type' => 'multipart' ) );
+              else
+                wp_link_pages(array('before'=>'<div class="post-pages">'.__('Pages:','hueman'),'after'=>'</div>'));
+            ?>
+          </nav><!--/.pagination-->
 					<div class="clear"></div>
 				</div><!--/.entry-->
 

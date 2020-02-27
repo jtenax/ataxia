@@ -19,6 +19,19 @@
 	
 	<div id="fgj2wp_settings">
 		<?php require('database-info.php'); ?>
+	
+	<?php require('tabs.php'); ?>
+	<?php switch ( $data['tab'] ): ?>
+<?php case 'help': ?>
+	<?php require('help-instructions.tpl.php'); ?>
+	<?php require('help-options.tpl.php'); ?>
+	<?php break; ?>
+
+<?php case 'debuginfo': ?>
+	<?php require('debug-info.php'); ?>
+	<?php break; ?>
+
+<?php default: ?>
 		<?php require('empty-content.php'); ?>
 		
 		
@@ -40,4 +53,5 @@
 	</div>
 	
 	<?php require('extra-features.php'); ?>
+<?php endswitch; ?>	
 </div>
