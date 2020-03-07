@@ -1,0 +1,1 @@
+[07-Mar-2020 14:31:08 UTC] PHP Fatal error:  Cannot redeclare hu_display_min_php_message() (previously declared in /media/hdd/www/at/wp-content/themes/hueman-child/functions.php:16) in /media/hdd/www/at/wp-content/themes/hueman/functions.php on line 17
