@@ -97,7 +97,7 @@ if ( ! class_exists( 'HU_utils_settings_map' ) ) :
           'hu_site_identity_sec',
           'hu_general_design_sec',
           'hu_comments_sec',
-          'hu_smoothscroll_sec',
+          //'hu_smoothscroll_sec',//<=Removed in march 2020
           'hu_mobiles_sec',
           'hu_search_sec',
           'hu_social_links_sec',
@@ -439,19 +439,20 @@ if ( ! class_exists( 'HU_utils_settings_map' ) ) :
     /*-----------------------------------------------------------------------------------------------------
                                    SMOOTH SCROLL SECTION
     ------------------------------------------------------------------------------------------------------*/
-    function hu_smoothscroll_sec() {
-      return array(
-          'smoothscroll' => array(
-                'default'   => 1,
-                'control'   => 'HU_controls',
-                'label'     => __('Enable Smooth Scrolling', 'hueman'),
-                'section'   => 'smoothscroll_sec',
-                'type'      => 'nimblecheck',
-                'notice'    => __( "This option enables a smoother page scroll." , 'hueman' )
+    // Removed in march 2020
+    // function hu_smoothscroll_sec() {
+    //   return array(
+    //       'smoothscroll' => array(
+    //             'default'   => 1,
+    //             'control'   => 'HU_controls',
+    //             'label'     => __('Enable Smooth Scrolling', 'hueman'),
+    //             'section'   => 'smoothscroll_sec',
+    //             'type'      => 'nimblecheck',
+    //             'notice'    => __( "This option enables a smoother page scroll." , 'hueman' )
 
-          )
-      );
-    }
+    //       )
+    //   );
+    // }
 
 
     /*-----------------------------------------------------------------------------------------------------
@@ -529,6 +530,22 @@ if ( ! class_exists( 'HU_utils_settings_map' ) ) :
                 'section'     => 'performance_sec',
                 'type'        => 'nimblecheck',
                 'notice'      => __('When checked, this option loads a small javascript file ( 30 kb ) to detect if your site is being displayed by a mobile device like a phone or a tablet. It is recommended to check this option if you are using a cache plugin.' , 'hueman')
+          ),
+
+          // added for https://github.com/presscustomizr/hueman/issues/863
+          'defer_front_script'  =>  array(
+                'default'       => 0,
+                'control'     =>  'HU_controls',
+                'label'       => __( 'Defer loading javascript files to avoid render blocking issues' , 'hueman' ),
+                'section'     => 'performance_sec',
+                'type'        => 'nimblecheck'
+          ),
+          'defer_font_awesome'  =>  array(
+                'default'       => 0,
+                'control'     =>  'HU_controls',
+                'label'       => __( 'Defer loading Font Awesome icons' , 'hueman' ),
+                'section'     => 'performance_sec',
+                'type'        => 'nimblecheck'
           )
 
       );
@@ -1061,6 +1078,33 @@ if ( ! class_exists( 'HU_utils_settings_map' ) ) :
                     'priority' => '60'
                 )
           ),
+          // added for https://github.com/presscustomizr/hueman/issues/859
+          'blog-standard-full-content' => array(
+                'default'   => 0,
+                'control'   => 'HU_controls',
+                'label'     => __("Display your blog posts in full content", 'hueman'),
+                'section'   => 'content_blog_sec',
+                'type'      => 'nimblecheck',
+                //'active_callback' => 'hu_is_post_list',
+                'priority'   => 22,
+                'ubq_section'   => array(
+                    'section' => 'static_front_page',
+                    'priority' => '62'
+                )
+          ),
+          'blog-standard-show-thumb' => array(
+                'default'   => 1,
+                'control'   => 'HU_controls',
+                'label'     => __("Display the post thumbnail", 'hueman'),
+                'section'   => 'content_blog_sec',
+                'type'      => 'nimblecheck',
+                //'active_callback' => 'hu_is_post_list',
+                'priority'   => 23,
+                'ubq_section'   => array(
+                    'section' => 'static_front_page',
+                    'priority' => '63'
+                )
+          ),
           'blog-use-original-image-size'  =>  array(
                 'default'   => 0,
                 'control'   => 'HU_controls' ,
@@ -1070,7 +1114,7 @@ if ( ! class_exists( 'HU_utils_settings_map' ) ) :
                 //'transport' => 'postMessage',
                 'notice'    => __( 'When checked, the post featured image are displayed in their original size, instead of the optimized image sizes of the theme. Make sure your original images are not too large, it could slow down your website.', 'hueman'),
                 //'active_callback' => 'hu_is_post_list',
-                'priority'   => 22,
+                'priority'   => 25,
                 'ubq_section'   => array(
                     'section' => 'static_front_page',
                     'priority' => '65'
@@ -1842,11 +1886,12 @@ if ( ! class_exists( 'HU_utils_settings_map' ) ) :
                 /*---------------------------------------------------------------------------------------------
         -> PANEL : ADVANCED
         ----------------------------------------------------------------------------------------------*/
-        'smoothscroll_sec'         => array(
-              'title'    => __( 'Smooth Scroll', 'hueman' ),
-              'priority' => 10,
-              'panel'   => 'hu-advanced-panel'
-        ),
+        // Removed in march 2020
+        // 'smoothscroll_sec'         => array(
+        //       'title'    => __( 'Smooth Scroll', 'hueman' ),
+        //       'priority' => 10,
+        //       'panel'   => 'hu-advanced-panel'
+        // ),
         'mobiles_sec'         => array(
               'title'    => __( 'Mobile Devices', 'hueman' ),
               'priority' => 20,

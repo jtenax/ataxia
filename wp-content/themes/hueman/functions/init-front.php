@@ -20,7 +20,7 @@ if ( ! function_exists( 'hu_get_content') ) {
       <?php do_action( '__before_content_section', $tmpl ); ?>
         <section class="content" id="content">
           <?php hu_get_template_part('parts/page-title'); ?>
-          <div class="pad group">
+          <div class="hu-pad group">
             <?php
               foreach ( $seks as $_id ) {
                   if ( 'wp' == $_id )
@@ -29,7 +29,7 @@ if ( ! function_exists( 'hu_get_content') ) {
                     hu_print_sek( $_id );
               }
             ?>
-          </div><!--/.pad-->
+          </div><!--/.hu-pad-->
         </section><!--/.content-->
       <?php do_action( '__after_content_section', $tmpl ); ?>
     <?php
@@ -389,7 +389,9 @@ if ( ! function_exists( 'hu_print_social_links' ) ) {
 if ( ! function_exists( 'hu_render_header_image' ) ) {
   function hu_render_header_image( $_header_img_src = null ) {
     $attr = array(
-      'class' => 'site-image'
+        //'class' => hu_user_started_before_version( '3.5.3' ) ? 'site-image' : 'new-site-image',//<= if the new CSS class breaks websites, we might use this condition
+        // introduced March 2020 for https://github.com/presscustomizr/hueman/issues/852
+        'class' => 'new-site-image'
     );
 
     $_header_img_src = trim( $_header_img_src );
@@ -782,16 +784,6 @@ if ( ! function_exists( 'hu_print_placeholder_thumb' ) ) {
         $_svg_height = in_array($_size, array( 'thumb-medium', 'thumb-standard' ) ) ? 100 : 60;
         ?>
         <svg class="hu-svg-placeholder <?php echo $_size; ?>" id="<?php echo $_unique_id; ?>" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M928 832q0-14-9-23t-23-9q-66 0-113 47t-47 113q0 14 9 23t23 9 23-9 9-23q0-40 28-68t68-28q14 0 23-9t9-23zm224 130q0 106-75 181t-181 75-181-75-75-181 75-181 181-75 181 75 75 181zm-1024 574h1536v-128h-1536v128zm1152-574q0-159-112.5-271.5t-271.5-112.5-271.5 112.5-112.5 271.5 112.5 271.5 271.5 112.5 271.5-112.5 112.5-271.5zm-1024-642h384v-128h-384v128zm-128 192h1536v-256h-828l-64 128h-644v128zm1664-256v1280q0 53-37.5 90.5t-90.5 37.5h-1536q-53 0-90.5-37.5t-37.5-90.5v-1280q0-53 37.5-90.5t90.5-37.5h1536q53 0 90.5 37.5t37.5 90.5z"/></svg>
-
-        <script type="text/javascript">
-          jQuery( function($){
-            if ( $('#flexslider-featured').length ) {
-              $('#flexslider-featured').on('featured-slider-ready', function() {
-                $( '#<?php echo $_unique_id; ?>' ).animateSvg();
-              });
-            } else { $( '#<?php echo $_unique_id; ?>' ).animateSvg( { svg_opacity : 0.3, filter_opacity : 0.5 } ); }
-          });
-        </script>
         <?php
     }
 
@@ -1083,6 +1075,27 @@ add_filter( 'hu_front_js_localized_params', 'hu_add_fittext_js_front_params' );
 /* ------------------------------------------------------------------------- */
 /*  Enqueue javascript
 /* ------------------------------------ */
+// March 2020 for https://github.com/presscustomizr/hueman/issues/863
+// Adds `async` and `defer` support for scripts registered or enqueued
+// and for which we've added an attribute with wp_script_add_data( $_hand, 'async', true );
+// inspired from Twentytwenty WP theme
+// @see https://core.trac.wordpress.org/ticket/12009
+function hu_filter_script_loader_tag( $tag, $handle ) {
+  foreach ( [ 'async', 'defer' ] as $attr ) {
+    if ( ! wp_scripts()->get_data( $handle, $attr ) ) {
+      continue;
+    }
+    // Prevent adding attribute when already added in #12009.
+    if ( ! preg_match( ":\s$attr(=|>|\s):", $tag ) ) {
+      $tag = preg_replace( ':(?=></script>):', " $attr", $tag, 1 );
+    }
+    // Only allow async or defer, not both.
+    break;
+  }
+  return $tag;
+}
+add_filter( 'script_loader_tag', 'hu_filter_script_loader_tag', 10, 2 );
+
 //hook : wp_enqueue_scripts
 if ( ! function_exists( 'hu_scripts' ) ) {
   function hu_scripts() {
@@ -1093,19 +1106,21 @@ if ( ! function_exists( 'hu_scripts' ) ) {
         'mobile-detect',
         get_template_directory_uri() . '/assets/front/js/libs/mobile-detect.min.js',
         array(),
-        '',
+        ( defined('WP_DEBUG') && true === WP_DEBUG ) ? time() : HUEMAN_VER,
         false
       );
+      wp_script_add_data( 'mobile-detect', 'defer', true );
     }
 
-    if ( has_post_format( 'gallery' ) || ( is_home() && ! is_paged() && ( hu_get_option('featured-posts-count') != '0' ) ) ) {
+    if ( hu_front_needs_flexslider() ) {
       wp_enqueue_script(
         'flexslider',
         get_template_directory_uri() . '/assets/front/js/libs/jquery.flexslider.min.js',
         array( 'jquery' ),
-        '',
+        ( defined('WP_DEBUG') && true === WP_DEBUG ) ? time() : HUEMAN_VER,
         false
       );
+      wp_script_add_data( 'flexslider', 'defer', true );
     }
 
     if ( has_post_format( 'audio' ) ) {
@@ -1113,18 +1128,30 @@ if ( ! function_exists( 'hu_scripts' ) ) {
         'jplayer',
         get_template_directory_uri() . '/assets/front/js/libs/jquery.jplayer.min.js',
         array( 'jquery' ),
-        '',
+        ( defined('WP_DEBUG') && true === WP_DEBUG ) ? time() : HUEMAN_VER,
         true
       );
     }
 
-    wp_enqueue_script(
+    if ( hu_is_checked('defer_front_script') ) {
+       wp_enqueue_script(
+          'hu-init-js',
+          sprintf('%1$s/assets/front/js/hu-init%2$s.js' , get_template_directory_uri(), ( defined('WP_DEBUG') && true === WP_DEBUG ) ? '' : '.min' ),
+          array('jquery','underscore'),
+          ( defined('WP_DEBUG') && true === WP_DEBUG ) ? time() : HUEMAN_VER,
+          true
+      );
+    } else {
+      wp_enqueue_script(
         'hu-front-scripts',
         sprintf('%1$s/assets/front/js/scripts%2$s.js' , get_template_directory_uri(), ( defined('WP_DEBUG') && true === WP_DEBUG ) ? '' : '.min' ),
         array( 'jquery', 'underscore' ),
         ( defined('WP_DEBUG') && true === WP_DEBUG ) ? time() : HUEMAN_VER,
         true
-    );
+      );
+      wp_script_add_data( 'hu-front-scripts', 'defer', true );
+    }
+
 
     if ( is_singular() && get_option( 'thread_comments' ) && comments_open() ) {
       wp_enqueue_script( 'comment-reply' );
@@ -1153,7 +1180,7 @@ if ( ! function_exists( 'hu_scripts' ) ) {
     }
 
     wp_localize_script(
-          'hu-front-scripts',
+          hu_is_checked('defer_front_script') ? 'hu-init-js' : 'hu-front-scripts',
           'HUParams',
           apply_filters( 'hu_front_js_localized_params' , array(
                 '_disabled'          => apply_filters( 'hu_disabled_front_js_parts', array() ),
@@ -1182,7 +1209,8 @@ if ( ! function_exists( 'hu_scripts' ) ) {
                       ),
                       'opts'     => array(
                           'excludeImg' => array( '.tc-holder-img' ),
-                          'fadeIn_options' => 100
+                          'fadeIn_options' => 100,
+                          'threshold' => 0
                       )
                 )),
                 'goldenRatio'         => apply_filters( 'hu_grid_golden_ratio' , 1.618 ),
@@ -1215,6 +1243,23 @@ if ( ! function_exists( 'hu_scripts' ) ) {
                   'collapsibleExpand'   => __( 'Expand', 'hueman' ),
                   'collapsibleCollapse' => __( 'Collapse', 'hueman' )
                 ),
+                'deferFontAwesome' => hu_is_checked( 'defer_font_awesome' ),
+                'fontAwesomeUrl' => sprintf('%1$s/assets/front/css/font-awesome.min.css?%2$s',
+                    get_template_directory_uri(),
+                    ( defined('WP_DEBUG') && true === WP_DEBUG ) ? time() : HUEMAN_VER
+                ),
+                'mainScriptUrl' => sprintf('%1$s/assets/front/js/scripts%2$s.js?%3$s'
+                  , get_template_directory_uri(),
+                  ( defined('WP_DEBUG') && true === WP_DEBUG ) ? '' : '.min',
+                  ( defined('WP_DEBUG') && true === WP_DEBUG ) ? time() : HUEMAN_VER
+                ),
+                'flexSliderNeeded' => hu_front_needs_flexslider(),
+                'flexSliderOptions' => array(
+                    'is_rtl' => is_rtl(),
+                    'has_touch_support' => apply_filters('hu_flexslider_touch_support' , true),
+                    'is_slideshow' => hu_is_checked('featured-slideshow'),
+                    'slideshow_speed' => hu_get_option('featured-slideshow-speed', 5000)
+                )
             )
         )//end of filter
        );//wp_localize_script()
@@ -1293,23 +1338,25 @@ if ( ! function_exists( 'hu_styles' ) ) {
             'theme-stylesheet',
             get_stylesheet_uri(),
             array('hueman-main-style'),
-            ( defined('WP_DEBUG') && true === WP_DEBUG ) ? time() : HUEMAN_VER,
+            ( defined('WP_DEBUG') && true === WP_DEBUG ) ? time() : wp_get_theme()->get('Version'),
             'all'
         );
     }
 
     //can be dequeued() if already loaded by a plugin.
     //=> wp_dequeue_style( 'hueman-font-awesome' )
-    wp_enqueue_style(
-        'hueman-font-awesome',
-        sprintf('%1$s/assets/front/css/%2$s',
-            get_template_directory_uri(),
-            hu_is_checked('minified-css') ? 'font-awesome.min.css' : 'dev-font-awesome.css'
-        ),
-        is_child_theme() ? array( 'theme-stylesheet' ) : array(),
-        ( defined('WP_DEBUG') && true === WP_DEBUG ) ? time() : HUEMAN_VER,
-        'all'
-    );
+    if ( !hu_is_checked( 'defer_font_awesome' ) ) {
+        wp_enqueue_style(
+            'hueman-font-awesome',
+            sprintf('%1$s/assets/front/css/%2$s',
+                get_template_directory_uri(),
+                hu_is_checked('minified-css') ? 'font-awesome.min.css' : 'dev-font-awesome.css'
+            ),
+            is_child_theme() ? array( 'theme-stylesheet' ) : array(),
+            ( defined('WP_DEBUG') && true === WP_DEBUG ) ? time() : HUEMAN_VER,
+            'all'
+        );
+    }
 
 
   }

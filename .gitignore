@@ -36,6 +36,7 @@ node_modules/
 # Ignore WP configuration file.
 wp-config.php
 wp-content/uploads/
+wp-content/plugins/akeebabackupwp/app/backups/
 wp-content/aiowps_backups/
 /drupal2wp
 
@@ -45,14 +46,6 @@ s/*
 
 wp-content/cache/autoptimize/*
 !wp-content/cache/autoptimize/
-
-wp-content/themes/testfort/css
-wp-content/themes/testfort/js/all.min.js
-wp-content/themes/testfort/js/revisions
-
-wp-content/themes/testfort/sass/sprites.scss
-wp-content/themes/testfort/images/svg/sprite.png
-wp-content/themes/testfort/images/svg/sprite.svg
 
 wp-content/cache/
 

@@ -81,32 +81,8 @@
 
   	<div class="post-format">
   		<?php $images = hu_post_images(); if ( !empty($images) ): ?>
-  		<script type="text/javascript">
-  			// Check if first slider image is loaded, and load flexslider on document ready
-  			jQuery( function($){
-  			 var firstImage = $('#flexslider-<?php echo the_ID(); ?>').find('img').filter(':first'),
-  				checkforloaded = setInterval(function() {
-  					var image = firstImage.get(0);
-  					if (image.complete || image.readyState == 'complete' || image.readyState == 4) {
-  						clearInterval(checkforloaded);
-  						$('#flexslider-<?php echo the_ID(); ?>').flexslider({
-  							animation: '<?php echo wp_is_mobile() ? "slide" : "fade"; ?>',
-                rtl: <?php echo json_encode( is_rtl() ) ?>,
-  							slideshow: true,
-  							directionNav: true,
-  							controlNav: true,
-  							pauseOnHover: true,
-  							slideshowSpeed: 7000,
-  							animationSpeed: 600,
-  							smoothHeight: true,
-  							touch: <?php echo apply_filters('hu_flexslider_touch_support' , true); ?>
-  						});
-  					}
-  				}, 20);
-  			});
-  		</script>
   		<div class="flex-container">
-  			<div class="flexslider" id="flexslider-<?php the_ID(); ?>">
+  			<div class="flexslider" id="flexslider-for-gallery-post-format-<?php the_ID(); ?>">
   				<ul class="slides">
   					<?php foreach ( $images as $image ): ?>
   						<li>
@@ -155,7 +131,7 @@
 
 <?php if ( has_post_format( 'quote' ) ): // Quote @fromfull ?>
     <div class="post-format">
-      <div class="format-container pad">
+      <div class="format-container hu-pad">
         <i class="fas fa-quote-right"></i>
         <blockquote><?php echo isset($meta['_quote'][0])?wpautop($meta['_quote'][0]):''; ?></blockquote>
         <p class="quote-author"><?php echo (isset($meta['_quote_author'][0])?'&mdash; '.$meta['_quote_author'][0]:''); ?></p>
@@ -165,7 +141,7 @@
 
 <?php if ( has_post_format( 'chat' ) ): // Chat @fromfull?>
   	<div class="post-format">
-      <div class="format-container pad">
+      <div class="format-container hu-pad">
         <i class="far fa-comments"></i>
         <blockquote>
           <?php echo (isset($meta['_chat'][0])?wpautop($meta['_chat'][0]):''); ?>
@@ -176,7 +152,7 @@
 
 <?php if ( has_post_format( 'link' ) ): // Link @fromfull ?>
   	<div class="post-format">
-      <div class="format-container pad">
+      <div class="format-container hu-pad">
         <p><a href="<?php echo (isset($meta['_link_url'][0])?$meta['_link_url'][0]:'#'); ?>">
           <i class="fas fa-link"></i>
           <?php echo (isset($meta['_link_title'][0])?$meta['_link_title'][0]:get_the_title()); ?> &rarr;

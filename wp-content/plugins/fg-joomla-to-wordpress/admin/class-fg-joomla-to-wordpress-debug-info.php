@@ -22,7 +22,8 @@ if ( !class_exists('FG_Joomla_to_WordPress_DebugInfo', false) ) {
 			global $wpdb;
 			$matches = array();
 			
-			$plugin_url = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+			$protocol = (isset($_SERVER['REQUEST_SCHEME']) && !empty($_SERVER['REQUEST_SCHEME']))? $_SERVER['REQUEST_SCHEME']: 'http';
+			$plugin_url = $protocol . '://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 			$plugin_url = preg_replace('/&tab=debuginfo/', '', $plugin_url);
 			
 			$theme = wp_get_theme();
@@ -77,6 +78,7 @@ if ( !class_exists('FG_Joomla_to_WordPress_DebugInfo', false) ) {
 			echo  '  max_input_time: '. ini_get('max_input_time') . "\n";
 			echo  '  post_max_size: '. ini_get('post_max_size') . "\n";
 			echo  '  upload_max_filesize: '. ini_get('upload_max_filesize') . "\n";
+			echo  '  allow_url_fopen: '. ini_get('allow_url_fopen') . "\n";
 			echo  '  PDO: '. $pdo_drivers . "\n";
 			
 			echo "\nMySQL info:\n";

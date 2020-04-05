@@ -57,10 +57,6 @@ msgstr "Виставки організовуються UMoMA у співпра�
 msgid "With seven floors of striking architecture, UMoMA shows exhibitions of international contemporary art, sometimes along with art historical retrospectives. Existential, political and philosophical issues are intrinsic to our programme. As visitor you are invited to guided tours artist talks, lectures, film screenings and other events with free admission"
 msgstr "Завдяки семи поверхам яскравої архітектури, UMoMA демонструє виставки міжнародного сучасного мистецтва, іноді поряд із мистецькими історичними ретроспективами. Екзистенційні, політичні та філософські питання є суттєвими для нашої програми. В якості відвідувача вас запрошують на екскурсії художньої розмови, лекції, показ фільмів та інші заходи з вільним входом"
 
-#: inc/starter-content.php:129
-msgid "”Cyborgs, as the philosopher Donna Haraway established, are not reverent. They do not remember the cosmos.”"
-msgstr "\"Кіборги, як встановив філософ Донна Харавей, не шануються. Вони не пам’ятають космос.\""
-
 #: inc/starter-content.php:113
 msgid "From Signac to Matisse"
 msgstr "Від Сигнака до Матісса"
@@ -138,7 +134,7 @@ msgstr "За замовчуванням"
 msgid "Primary Color"
 msgstr "Основний колір"
 
-#: template-parts/modal-search.php:20 searchform.php:24
+#: searchform.php:24 template-parts/modal-search.php:20
 msgid "Search for:"
 msgstr "Шукати:"
 
@@ -146,7 +142,7 @@ msgstr "Шукати:"
 msgid "search again"
 msgstr "шукати знову"
 
-#. translators: %s: Number of search results
+#. translators: %s: Number of search results.
 #: index.php:39
 msgid "We found %s result for your search."
 msgid_plural "We found %s results for your search."
@@ -154,17 +150,17 @@ msgstr[0] "Ми знайшли %s результат для вашого пош�
 msgstr[1] "Ми знайшли %s результати для вашого пошуку"
 msgstr[2] "Ми знайшли %s результатів для вашого пошуку"
 
-#. translators: %s: HTML character for up arrow
+#. translators: %s: HTML character for up arrow.
 #: footer.php:49
 msgid "Up %s"
 msgstr "Нагору %s"
 
-#. translators: %s: HTML character for up arrow
+#. translators: %s: HTML character for up arrow.
 #: footer.php:43
 msgid "To the top %s"
 msgstr "На початок %s"
 
-#. translators: Copyright date format, see https://secure.php.net/date
+#. translators: Copyright date format, see https://www.php.net/date
 #: footer.php:25
 msgctxt "copyright date format"
 msgid "Y"
@@ -218,16 +214,16 @@ msgstr "Соціальні посилання"
 msgid "Footer"
 msgstr "Підвал"
 
-#. translators: %s: Author name
-#: template-parts/entry-author-bio.php:20 inc/template-tags.php:354
+#. translators: %s: Author name.
+#: inc/template-tags.php:354 template-parts/entry-author-bio.php:20
 msgid "By %s"
 msgstr "Від %s"
 
-#: template-parts/content.php:48 template-parts/content-cover.php:138
+#: template-parts/content-cover.php:138 template-parts/content.php:48
 msgid "Pages:"
 msgstr "Сторінки:"
 
-#: template-parts/content.php:48 template-parts/content-cover.php:138
+#: template-parts/content-cover.php:138 template-parts/content.php:48
 msgid "Page"
 msgstr "Сторінка"
 
@@ -266,8 +262,8 @@ msgstr "Приліплений запис"
 msgid "Tags"
 msgstr "Позначки"
 
-#: template-parts/content-cover.php:70 template-parts/entry-header.php:36
-#: inc/template-tags.php:389
+#: inc/template-tags.php:389 template-parts/entry-header.php:36
+#: template-parts/content-cover.php:70
 msgid "Categories"
 msgstr "Категорії"
 
@@ -283,7 +279,7 @@ msgstr "Автор запису"
 msgid "Social Links Menu"
 msgstr "Меню соціальних посилань"
 
-#: functions.php:491 inc/starter-content.php:176 inc/starter-content.php:186
+#: inc/starter-content.php:176 inc/starter-content.php:186 functions.php:494
 msgid "Primary"
 msgstr "Головна"
 
@@ -303,99 +299,99 @@ msgstr "Пошук"
 msgid "Continue reading"
 msgstr "Продовжити читання"
 
-#: functions.php:548
+#: functions.php:551
 msgctxt "Short name of the larger font size in the block editor."
 msgid "XL"
 msgstr "XL"
 
-#: functions.php:547
+#: functions.php:550
 msgctxt "Name of the larger font size in the block editor"
 msgid "Larger"
 msgstr "Більше"
 
-#: functions.php:542
+#: functions.php:545
 msgctxt "Short name of the large font size in the block editor."
 msgid "L"
 msgstr "L"
 
-#: functions.php:541
+#: functions.php:544
 msgctxt "Name of the large font size in the block editor"
 msgid "Large"
 msgstr "Великий"
 
-#: functions.php:536
+#: functions.php:539
 msgctxt "Short name of the regular font size in the block editor."
 msgid "M"
 msgstr "M"
 
-#: functions.php:535
+#: functions.php:538
 msgctxt "Name of the regular font size in the block editor"
 msgid "Regular"
 msgstr "Звичайний"
 
-#: functions.php:530
+#: functions.php:533
 msgctxt "Short name of the small font size in the block editor."
 msgid "S"
 msgstr "S"
 
-#: functions.php:529
+#: functions.php:532
 msgctxt "Name of the small font size in the block editor"
 msgid "Small"
 msgstr "Малий"
 
-#: functions.php:514
+#: functions.php:517
 msgid "Background Color"
 msgstr "Колір фону"
 
-#: functions.php:501
+#: functions.php:504
 msgid "Subtle Background"
 msgstr "Тонкий фон"
 
-#: functions.php:496
+#: functions.php:499
 msgid "Secondary"
 msgstr "Вторинний"
 
-#: functions.php:486
+#: functions.php:489
 msgid "Accent Color"
 msgstr "Основний колір"
 
-#: functions.php:377
+#: functions.php:380
 msgid "Widgets in this area will be displayed in the second column in the footer."
 msgstr "Віджети в цій області відображатимуться у другому стовпці футера."
 
-#: functions.php:375
+#: functions.php:378
 msgid "Footer #2"
 msgstr "Підвал #2"
 
-#: functions.php:365
+#: functions.php:368
 msgid "Widgets in this area will be displayed in the first column in the footer."
 msgstr "Віджети в цій ділянці будуть показані в першому стовпчику футера."
 
-#: functions.php:363
+#: functions.php:366
 msgid "Footer #1"
 msgstr "Підвал #1"
 
-#: functions.php:338
+#: functions.php:341
 msgid "Skip to the content"
 msgstr "Перейти до вмісту"
 
-#: functions.php:259
+#: functions.php:262
 msgid "Social Menu"
 msgstr "Соціальне меню"
 
-#: functions.php:258
+#: functions.php:261
 msgid "Footer Menu"
 msgstr "Меню підвалу"
 
-#: functions.php:257
+#: functions.php:260
 msgid "Mobile Menu"
 msgstr "Мобільне меню"
 
-#: functions.php:256
+#: functions.php:259
 msgid "Desktop Expanded Menu"
 msgstr "Розгорнуте меню для комп'ютера"
 
-#: functions.php:255
+#: functions.php:258
 msgid "Desktop Horizontal Menu"
 msgstr "Горизонтальне меню для комп'ютера"
 
@@ -419,7 +415,7 @@ msgstr "Старіші коментарі"
 msgid "Newer Comments"
 msgstr "Новіші коментарі"
 
-#. translators: 1: number of comments, 2: post title
+#. translators: 1: Number of comments, 2: Post title.
 #: comments.php:41
 msgctxt "comments title"
 msgid "%1$s reply on &ldquo;%2$s&rdquo;"
@@ -428,7 +424,7 @@ msgstr[0] "%1$s коментар &ldquo;%2$s&rdquo;"
 msgstr[1] "%1$s коментарі &ldquo;%2$s&rdquo;"
 msgstr[2] "%1$s коментарів &ldquo;%2$s&rdquo;"
 
-#. translators: %s: post title
+#. translators: %s: Post title.
 #: comments.php:37
 msgctxt "comments title"
 msgid "One reply on &ldquo;%s&rdquo;"
@@ -438,12 +434,12 @@ msgstr "Один коментар до &ldquo;%s&rdquo;"
 msgid "Leave a comment"
 msgstr "Залишити коментар"
 
-#: classes/class-twentytwenty-walker-page.php:134 inc/template-tags.php:555
+#: classes/class-twentytwenty-walker-page.php:107 inc/template-tags.php:555
 msgid "Show sub menu"
 msgstr "Показати підменю"
 
-#. translators: %d: ID of a post
-#: classes/class-twentytwenty-walker-page.php:82
+#. translators: %d: ID of a post.
+#: classes/class-twentytwenty-walker-page.php:70
 msgid "#%d (no title)"
 msgstr "#%d (без назви)"
 
@@ -459,7 +455,7 @@ msgstr "Ваш коментар чекає схвалення."
 msgid "Edit"
 msgstr "Редагувати"
 
-#. Translators: 1 = comment date, 2 = comment time
+#. translators: 1: Comment date, 2: Comment time.
 #: classes/class-twentytwenty-walker-comment.php:69
 msgid "%1$s at %2$s"
 msgstr "%1$s о %2$s"

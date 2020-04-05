@@ -4,7 +4,7 @@ Plugin Uri: https://wordpress.org/plugins/fg-joomla-to-wordpress/
 Tags: joomla, mambo, elxis, wordpress, import, importer, migration, migrator, k2, virtuemart, easyblog, sh404sef, jcomments, kunena, zoo, community builder, hikashop
 Requires at least: 4.5
 Tested up to: 5.3.2
-Stable tag: 3.64.1
+Stable tag: 3.65.1
 Requires PHP: 5.6
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -234,6 +234,13 @@ https://www.youtube.com/watch?v=bXOQ70s6YS8
 * other can be translated
 
 == Changelog ==
+
+= 3.65.1 =
+* Fixed: Media links with arguments were not imported
+
+= 3.65.0 =
+* New: Add allow_url_fopen in the Debug Info
+* Fixed: Notice:  Undefined index: REQUEST_SCHEME
 
 = 3.64.1 =
 * Fixed: Prevent WordPress from breaking links containing ':'
@@ -1094,5 +1101,9 @@ https://www.youtube.com/watch?v=bXOQ70s6YS8
 
 == Upgrade Notice ==
 
-= 3.64.1 =
-Fixed: Prevent WordPress from breaking links containing ':'
+= 3.65.1 =
+Fixed: Media links with arguments were not imported
+
+= 3.65.0 =
+New: Add allow_url_fopen in the Debug Info
+Fixed: Notice:  Undefined index: REQUEST_SCHEME

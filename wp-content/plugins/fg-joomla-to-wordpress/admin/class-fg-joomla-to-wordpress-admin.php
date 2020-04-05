@@ -1908,6 +1908,8 @@ SQL;
 			}
 			$import_external = ($this->plugin_options['import_external'] == 1) || (isset($options['force_external']) && $options['force_external'] );
 			
+			$filename = trim($filename); // for filenames with extra spaces at the beginning or at the end
+			$filename = preg_replace('/[?#].*/', '', $filename); // Remove the attributes and anchors
 			$filename = rawurldecode($filename); // for filenames with spaces or accents
 			$filename = html_entity_decode($filename); // for filenames with HTML entities
 			// Filenames starting with //
