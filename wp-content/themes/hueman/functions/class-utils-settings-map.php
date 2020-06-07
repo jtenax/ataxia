@@ -676,6 +676,32 @@ if ( ! class_exists( 'HU_utils_settings_map' ) ) :
                 'type'      => 'nimblecheck',
                 'notice'    => __('Upload a header image (supported formats : .jpg, .png, .gif, svg, svgz). This will disable header title/logo, site description, header ads widget' , 'hueman')
           ),
+
+          // april 2020 : 2 options added for https://github.com/presscustomizr/hueman/issues/877
+          'header-img-full-width' => array(
+                'default'   => 1,
+                'control'   => 'HU_controls',
+                'label'     => __( 'Image fills 100% of the width' , 'hueman' ),
+                'section'   => 'header_image_sec',
+                'type'      => 'nimblecheck'
+          ),
+          'header-img-natural-height' => array(
+                'default'   => 0,
+                'control'   => 'HU_controls',
+                'label'     => __( 'Use the original image height' , 'hueman' ),
+                'section'   => 'header_image_sec',
+                'type'      => 'nimblecheck'
+          ),
+          // 'header-img-height' => array(
+          //       'default'   => 400,
+          //       'control'   => 'HU_controls',
+          //       'label'     => __( 'Set image\'s max height' , 'hueman' ),
+          //       'section'   => 'header_image_sec',
+          //       'sanitize_callback' => array( $this , 'hu_sanitize_number' ),
+          //       'type'      => 'number' ,
+          //       'step'      => 1,
+          //       'min'       => 0,
+          // ),
           'logo-title-on-header-image' => array(
                 'default'   => 0,
                 'control'   => 'HU_controls',
@@ -1307,9 +1333,9 @@ if ( ! class_exists( 'HU_utils_settings_map' ) ) :
                 'skoped' => false// implemented initally not skopable in jan-2020, see ctx_get_excluded_settings()
           ),
           'singular-post-cropped-feat-img' => array(
-                'default'   => 1,
+                'default'   => 0,
                 'control'   => 'HU_controls',
-                'label'     => __( 'Used cropped image (720x340 pixels on desktops)', 'hueman' ),
+                'label'     => __( 'Used cropped image ( max 1320x500 on desktops)', 'hueman' ),
                 'section'   => 'content_single_sec',
                 'type'      => 'nimblecheck',
                 'priority'  => 10,
@@ -1400,9 +1426,9 @@ if ( ! class_exists( 'HU_utils_settings_map' ) ) :
                 'notice'    => __( 'Display the page\'s featured image when it is set' , 'hueman')
           ),
           'singular-page-cropped-feat-img' => array(
-                'default'   => 1,
+                'default'   => 0,
                 'control'   => 'HU_controls',
-                'label'     => __( 'Used cropped image (720x340 pixels on desktops)', 'hueman' ),
+                'label'     => __( 'Used cropped image (max 1320x500 on desktops)', 'hueman' ),
                 'section'   => 'content_page_sec',
                 'type'      => 'nimblecheck'
           ),
@@ -1530,7 +1556,15 @@ if ( ! class_exists( 'HU_utils_settings_map' ) ) :
                   'type'      => 'nimblecheck',
                   'priority'  => 110,
                   'notice'     => __( 'Display the primary sidebar above the content column on smartphone mobile devices (480px).', 'hueman' ),
-            )
+            ),
+            'sl-in-sidebar' => array(
+                'default'   => 1,
+                'control'   => 'HU_controls',
+                'label'     => __('Display social links in the primary sidebar', 'hueman'),
+                'section'   => 'sidebars_design_sec',
+                'type'      => 'nimblecheck',
+                'priority'  => 120,
+            ),
 
       );
     }
@@ -1634,6 +1668,14 @@ if ( ! class_exists( 'HU_utils_settings_map' ) ) :
                 'section'   => 'footer_design_sec',
                 'priority'  => 40,
                 'transport' => 'postMessage'
+          ),
+          'sl-in-footer' => array(
+                'default'   => 1,
+                'control'   => 'HU_controls',
+                'label'     => __('Display social links in the footer', 'hueman'),
+                'section'   => 'footer_design_sec',
+                'type'      => 'nimblecheck',
+                'priority'  => 50
           ),
       );
     }
