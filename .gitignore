@@ -31,11 +31,11 @@ node_modules/
 .idea/**/libraries
 !/markup/node_modules/
 /markup/node_modules/
-/wp-content/themes/testfort/node_modules/
 
 # Ignore WP configuration file.
 wp-config.php
 wp-content/uploads/
+wp-content/wflogs/
 wp-content/plugins/akeebabackupwp/app/backups/
 wp-content/aiowps_backups/
 /drupal2wp
